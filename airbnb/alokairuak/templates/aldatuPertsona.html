@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>Sartu datu berriak</h1>
+    </center>
+    <br>
+
+
+    <form action="aldatuPertsonaEtxea/" method="post" id="authorForm">
+        {% csrf_token %}
+        Pertsonaren izena: <input type="text" name="izena">
+        Gmail: <input type="text" name="gmail">
+        NAN: <input type="text" name="nan" id="gmail">   
+        <button type="submit">Post-a sortu</button>
+    </form>
+</body>
+</html>

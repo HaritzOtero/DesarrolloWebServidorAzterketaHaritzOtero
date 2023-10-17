@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>Etxe bat gehitzeko ondorengo formularioa bate:</h1>
+    </center>
+    <br>
+
+
+    <form action="addetxea/" method="post">
+        {% csrf_token %}
+        Etxearen izena: <input type="text" name="izena">
+        Herria: <input type="text" name="herria">
+        Pertsona kopurua: <input type="int" name="pertsonaKop" pattern="[0-9]+" required title = "Sartu zenbakia.">
+        Etxearen alokatzilea:<select name="pertsona" id="pertsona">
+            {% for pertsona in pertsonak %}
+            <option value="{{pertsona.id }}">{{ pertsona.izena }}</option>
+            {% endfor %}
+        </select>
+        <button type=submit>Etxea sortu</button>
+    </form>
+
+</body>
+</html>

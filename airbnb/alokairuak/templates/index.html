@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIRBNB</title>
+</head>
+<body>
+    <center>
+        <h1>AIRBNB ETXEAK</h1>
+    </center>
+    <br>
+
+    <table align="center" border="1">
+        {% for etxea in etxeak %}
+        <tr>
+            <td>
+
+                <div>
+                    <h2>Izena: {{etxea.izena}}</h2>
+                    </p>
+                    <p>Herria: {{etxea.herria}}</p>
+                    </p>
+                    <p>Pertsona kopurua: {{etxea.pertsonaKop}}</p>
+                    </p>
+                    <p>Alokatutako pertsona: {{etxea.pertsona.izena}}</p>
+
+                </div>
+
+
+            </td>
+            <td>
+                <a href="ezabatu/{{etxea.id}}" color="red">Ezabatu</a>
+            </td>
+            <td>
+                <a href="aldatu/{{etxea.id}}" color="red">Aldatu</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="add/">Gehitu etxea</a>
+    <a href="pertsonak/">Ikusi pertsonak</a>
+</body>
+</html>

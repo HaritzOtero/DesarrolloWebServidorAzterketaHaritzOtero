@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center><h1>Pertsona bat aldatzeko ondorengo formularioa bate:</h1></center>
+    <br>
+
+    
+    <form action="addEtxeaPertsona/" method="post">
+        {% csrf_token %}
+        Pertsonaren izena: <input type="text" name="izena" pattern="^[A-Za-z ]+$" required>
+        Gmail: <input type="gmail" name="gmail" requiered title= "Bete hau">
+        NAN: <input type="text" name="nan" id="nan">
+
+        <button type = submit>Post-a sortu</button>
+    </form>
+</body>
+</html>

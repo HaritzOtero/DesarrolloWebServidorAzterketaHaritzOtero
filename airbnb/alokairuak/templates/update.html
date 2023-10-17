@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>Sartu datu berriak</h1>
+    </center>
+    <br>
+
+
+    <form action="/aldatuEtxea/{{etxea.id}}/" method="post">
+        {% csrf_token %}
+        Etxea-aren izena: <input type="text" name="izena" value="{{etxea.izena}} ">
+        Herria: <input type="text" name="herria" value="{{etxea.herria}}">
+        Etxearen pertsona kopuru maximoa: <input type="int" name="pertsonaKop" value="{{etxea.pertsonaKop}}">
+        Etxe alokatzailea:<select name="pertsona" id="author">
+            {% for pertsona in pertsonak %}
+            <option value="{{pertsona.id }}">{{ pertsona.izena }}</option>
+            {% endfor %}
+        </select>
+        <button type=submit>Etxea sortu</button>
+    </form>
+
+</body>
+</html>

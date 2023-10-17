@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>Kaixo django blog</h1>
+    </center>
+    <br>
+
+    <table align="center" border="1">
+        {% for pertsona in pertsonak %}  <!-- Cambia 'autoreak' a 'authors' -->
+        <tr>
+            <td>
+                <div>
+                    <p>Izen Abizenak: <h2>{{ pertsona.izena }}</h2></p>
+                    <p>Gmail: {{ pertsona.gmail }}</p>
+                    <p>Nan: {{ pertsona.nan }}</p>
+                </div>
+            </td>
+            <td>
+                <a href="ezabatuPertsona/{{ pertsona.id }}">Ezabatu</a>  <!-- Cambia 'color' a 'style' -->
+            </td>
+            <td>
+                <a href="aldatuPertsona/{{ pertsona.id }}">Aldatu</a>  <!-- Cambia 'color' a 'style' -->
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+    <a href="addPertsona/">Gehitu pertsona</a>
+</body>
+</html>
